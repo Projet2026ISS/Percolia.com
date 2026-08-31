@@ -34,6 +34,8 @@ body {
 .page-surface {
   background: var(--color-bg);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -101,9 +103,23 @@ a {
 }
 
 main {
-  max-width: 720px;
+  max-width: 900px;
+  width: 100%;
   margin: 0 auto;
   padding: 4rem 2rem;
+}
+
+.hero-center {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bottom-block {
+  width: 100%;
 }
 
 .hero h1 {
@@ -111,9 +127,8 @@ main {
 }
 
 .hero h1.text {
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-weight: 600;
-  letter-spacing: 0.06em;
   font-size: 2rem;
   color: var(--color-text);
 }
@@ -164,8 +179,14 @@ main section h2 {
 form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  max-width: 480px;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 label {
@@ -175,7 +196,8 @@ label {
 
 input,
 textarea {
-  padding: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
   border: 1px solid var(--color-border);
   background: var(--color-surface);

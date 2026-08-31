@@ -56,27 +56,27 @@ export default function HomeClient() {
           </nav>
         </header>
 
-        <main>
-          <section className="hero">
-            <h1 className="visually-hidden">Percolia</h1>
-            <p className="tagline">
-              Percolia structure automatiquement vos données massives et
-              bruitées, plus finement que les méthodes actuelles, pour en
-              extraire les structures qui comptent.
-            </p>
-          </section>
+        <main className="hero-center">
+          <h1 className="visually-hidden">Percolia</h1>
+          <p className="tagline">
+            Percolia structure automatiquement vos données massives et
+            bruitées, plus finement que les méthodes actuelles, pour en
+            extraire les structures qui comptent.
+          </p>
+        </main>
 
-          <section className="cta-bottom">
+        <div className="bottom-block">
+          <div className="cta-bottom">
             <Link href="/contact" className="button">
               Nous contacter
             </Link>
-          </section>
-        </main>
+          </div>
 
-        <footer>
-          <Link href="/contact">Contact</Link>
-          <p>&copy; 2026 Percolia. Tous droits réservés.</p>
-        </footer>
+          <footer>
+            <Link href="/contact">Contact</Link>
+            <p>&copy; 2026 Percolia. Tous droits réservés.</p>
+          </footer>
+        </div>
       </div>
     </>
   );
