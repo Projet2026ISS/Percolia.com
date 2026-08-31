@@ -11,8 +11,8 @@ export default function Wordmark({
   text,
   className,
   height = 28,
-  strokeWidth = 15,
-  gap = 18,
+  strokeWidth = 14,
+  gap = 27,
   color = "currentColor",
   style,
 }) {
@@ -71,6 +71,9 @@ export default function Wordmark({
               />
             ))
           )}
+          {glyph.dots?.map((dot, j) => (
+            <circle key={j} cx={dot.cx} cy={dot.cy} r={dot.r} fill={dot.color} />
+          ))}
         </g>
       ))}
     </svg>
