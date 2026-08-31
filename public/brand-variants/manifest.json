@@ -1,0 +1,52 @@
+[
+  {
+    "n": 1,
+    "file": "variant-1.svg",
+    "label": "trait 14 · P/reste 0.78 (original brother)"
+  },
+  {
+    "n": 2,
+    "file": "variant-2.svg",
+    "label": "trait 17 · P/reste 0.78 (version actuelle)"
+  },
+  {
+    "n": 3,
+    "file": "variant-3.svg",
+    "label": "trait 20 · P/reste 0.78"
+  },
+  {
+    "n": 4,
+    "file": "variant-4.svg",
+    "label": "trait 12 · P/reste 0.78 (fin)"
+  },
+  {
+    "n": 5,
+    "file": "variant-5.svg",
+    "label": "trait 14 · P/reste 0.65 (P plus dominant)"
+  },
+  {
+    "n": 6,
+    "file": "variant-6.svg",
+    "label": "trait 17 · P/reste 0.65"
+  },
+  {
+    "n": 7,
+    "file": "variant-7.svg",
+    "label": "trait 14 · P/reste 0.90 (P proche du reste)"
+  },
+  {
+    "n": 8,
+    "file": "variant-8.svg",
+    "label": "trait 17 · P/reste 0.90"
+  },
+  {
+    "n": 9,
+    "file": "variant-9.svg",
+    "label": "trait 22 · P/reste 0.72 (très affirmé)"
+  },
+  {
+    "n": 10,
+    "file": "variant-10.svg",
+    "label": "trait 15 · P/reste 1.0 (toutes lettres identiques)"
+  }
+]
