@@ -10,6 +10,7 @@ import {
   VIEWBOX,
   ACCENT_TEAL,
   ACCENT_BLUE,
+  NO_DOT,
 } from "@/lib/birdGraph";
 
 // Timing budget (ms) for each phase of the intro.
@@ -30,11 +31,13 @@ const T = {
 };
 
 const ALL_POINTS = [
-  ...Object.entries(NODES).map(([name, pos]) => ({
-    key: `n-${name}`,
-    pos,
-    name,
-  })),
+  ...Object.entries(NODES)
+    .filter(([name]) => !NO_DOT.has(name))
+    .map(([name, pos]) => ({
+      key: `n-${name}`,
+      pos,
+      name,
+    })),
   ...DUST.map((pos, i) => ({ key: `d-${i}`, pos, name: null })),
 ];
 

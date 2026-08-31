@@ -7,6 +7,7 @@ import {
   VIEWBOX,
   ACCENT_TEAL,
   ACCENT_BLUE,
+  NO_DOT,
 } from "@/lib/birdGraph";
 
 function triangleFill(a, b, c) {
@@ -65,7 +66,9 @@ export default function BirdMark({ className, width = 40, height = 30 }) {
         );
       })}
 
-      {Object.entries(NODES).map(([name, [x, y]]) => (
+      {Object.entries(NODES)
+        .filter(([name]) => !NO_DOT.has(name))
+        .map(([name, [x, y]]) => (
         <circle
           key={name}
           cx={x}
