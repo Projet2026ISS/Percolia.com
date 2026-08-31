@@ -58,30 +58,17 @@ export default function HomeClient() {
 
         <main>
           <section className="hero">
-            <h1>
-              <img
-                src="/percolia-wordmark.svg"
-                alt="Percolia"
-                className="wordmark-h1"
-              />
-            </h1>
+            <h1 className="visually-hidden">Percolia</h1>
             <p className="tagline">
               Percolia transforme automatiquement des données massives et
               désordonnées en structures exploitables.
             </p>
+          </section>
+
+          <section className="cta-bottom">
             <Link href="/contact" className="button">
               Nous contacter
             </Link>
-          </section>
-
-          <section>
-            <h2>Ce que nous faisons</h2>
-            <p>
-              Nous développons une technologie de clustering 3D pour les
-              données LiDAR, destinée aux jumeaux numériques, à la robotique
-              et au BTP naval. Elle isole avec précision les structures
-              d&rsquo;intérêt dans des nuages de points massifs et bruités.
-            </p>
           </section>
         </main>
 

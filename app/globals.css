@@ -97,6 +97,14 @@ main {
   margin: 0 0 1.25rem;
 }
 
+.hero h1.text {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-size: 2rem;
+  color: var(--color-navy);
+}
+
 .hero .tagline {
   color: var(--color-navy);
   font-size: 1.2rem;
@@ -132,6 +140,12 @@ main section h2 {
   letter-spacing: 0.06em;
   font-size: 1.3rem;
   margin-bottom: 1rem;
+}
+
+.cta-bottom {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
 }
 
 form {
