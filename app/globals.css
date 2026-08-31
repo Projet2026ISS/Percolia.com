@@ -39,11 +39,10 @@ a {
   color: inherit;
 }
 
-.wordmark {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
+.wordmark,
+.wordmark-h1 {
+  display: block;
+  color: var(--color-navy);
 }
 
 .site-header {
@@ -59,10 +58,6 @@ a {
   gap: 0.75rem;
   text-decoration: none;
   color: var(--color-navy);
-}
-
-.site-header .brand .wordmark {
-  font-size: 1.1rem;
 }
 
 .site-header nav {
@@ -89,12 +84,7 @@ main {
 }
 
 .hero h1 {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-size: 2.25rem;
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
 }
 
 .hero .tagline {

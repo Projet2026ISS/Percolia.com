@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BirdMark from "@/components/BirdMark";
+import Wordmark from "@/components/Wordmark";
 
 export const metadata = {
   title: "Contact — Percolia",
@@ -11,7 +12,7 @@ export default function ContactPage() {
       <header className="site-header">
         <Link href="/" className="brand">
           <BirdMark width={40} height={25} />
-          <span className="wordmark">Percolia</span>
+          <Wordmark text="Percolia" height={18} className="wordmark" />
         </Link>
         <nav>
           <Link href="/">Accueil</Link>
@@ -23,7 +24,9 @@ export default function ContactPage() {
 
       <main>
         <section className="hero">
-          <h1>Contact</h1>
+          <h1>
+            <Wordmark text="Contact" height={40} className="wordmark-h1" />
+          </h1>
           <p className="tagline">Une question ? Écrivez-nous.</p>
         </section>
 
