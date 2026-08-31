@@ -2,28 +2,14 @@
 
 Site vitrine de Percolia, en Next.js (App Router).
 
-## Identité de marque
-
-La marque (logo, oiseau-réseau animé, mot-symbole, couleurs) vient du dépôt
-canonique [Ludwig-H/Percolia](https://github.com/Ludwig-H/Percolia/tree/main/Logo)
-et est reprise telle quelle dans `public/brand/` :
-
-- `percolia-bird-compact.svg` — oiseau seul, utilisé dans le header (< 96px)
-- `percolia-lockup-horizontal.svg` — mot-symbole + oiseau perché (statique)
-- `flight-stage.svg` + `bird-animation.js` — scène animée (deux oiseaux,
-  clips keyframés, IK) utilisée sur la page d'accueil, extraite de
-  `Logo/Oiseau/demo.html` du dépôt ci-dessus
-- `CHARTE_GRAPHIQUE.md` — charte graphique de référence
-
-Pour mettre à jour ces fichiers, régénérer depuis le dépôt source (voir son
-`Logo/README.md`) puis recopier dans `public/brand/`.
-
 ## Structure
 
-- `app/page.js` → `components/HomeClient.js` — page d'accueil
+- `app/page.js` — page d'accueil (avec l'intro animée du logo)
 - `app/contact/page.js` — page de contact
-- `components/FlightStage.js` — charge et démarre la scène animée du header
-- `app/globals.css` — tokens de couleur officiels + typographie (Fredoka + Inter)
+- `components/IntroSequence.js` — animation d'intro (points → oiseau → envol → logo)
+- `components/BirdMark.js` — logo oiseau statique (utilisé dans le header)
+- `lib/birdGraph.js` — géométrie du graphe (nœuds / arêtes / triangles) de l'oiseau
+- `app/globals.css` — palette et typographie (Sora + Inter)
 
 ## Développement local
 

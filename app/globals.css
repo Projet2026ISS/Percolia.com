@@ -1,23 +1,13 @@
 :root {
-  /* Official Percolia brand tokens — Logo/tokens.css,
-     github.com/Ludwig-H/Percolia/tree/main/Logo */
-  --color-ink: #082c4c;
-  --color-signal: #1c83d4;
-  --color-threshold: #20c9c4;
-  --color-mist: #eaf5f7;
-  --color-slate: #5d7385;
-  --color-white: #ffffff;
+  /* Palette 1 — Bleu nuit & Cyan (technologique, fiable, épurée) */
+  --color-navy: #102a43;
+  --color-blue: #168aad;
+  --color-teal: #61c0bf;
+  --color-offwhite: #f7f9fa;
+  --color-grey: #8b96a3;
 
   --font-heading: var(--font-fredoka), "Segoe UI", sans-serif;
   --font-body: var(--font-inter), "Segoe UI", sans-serif;
-}
-
-/* From Logo/Oiseau/bird-animation.css */
-.percolia-flight-stage [data-flight-bird] {
-  will-change: transform, opacity;
-}
-.network-bird-svg {
-  overflow: visible;
 }
 
 * {
@@ -31,27 +21,28 @@ body {
 }
 
 body {
-  background: var(--color-white);
-  color: var(--color-ink);
+  /* Navy by default so there is no flash of light background before the
+     intro animation (or its skip-state) takes over. */
+  background: var(--color-navy);
+  color: var(--color-navy);
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+}
+
+.page-surface {
+  background: var(--color-offwhite);
+  min-height: 100vh;
 }
 
 a {
   color: inherit;
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.wordmark,
+.wordmark-h1 {
+  display: block;
+  color: var(--color-navy);
 }
 
 .site-header {
@@ -64,23 +55,9 @@ a {
 .site-header .brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.75rem;
   text-decoration: none;
-  color: var(--color-ink);
-}
-
-.site-header .brand .brand-mark {
-  display: block;
-  height: 30px;
-  width: auto;
-}
-
-.site-header .brand .brand-name {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 1.05rem;
+  color: var(--color-navy);
 }
 
 .site-header nav {
@@ -90,45 +67,28 @@ a {
 
 .site-header nav a {
   text-decoration: none;
-  color: var(--color-slate);
+  color: var(--color-grey);
   font-size: 0.95rem;
   letter-spacing: 0.02em;
 }
 
 .site-header nav a:hover,
 .site-header nav a.active {
-  color: var(--color-ink);
+  color: var(--color-navy);
 }
 
 main {
-  max-width: 760px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 3rem 2rem 4rem;
+  padding: 4rem 2rem;
 }
 
-.hero .flight-stage {
-  width: 100%;
-  margin: 0 0 1.5rem;
-}
-
-.hero .flight-stage svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.hero h1.text {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 2.25rem;
+.hero h1 {
   margin: 0 0 1.25rem;
-  color: var(--color-ink);
 }
 
 .hero .tagline {
-  color: var(--color-ink);
+  color: var(--color-navy);
   font-size: 1.2rem;
   max-width: 34rem;
   margin: 0 0 2rem;
@@ -138,8 +98,8 @@ main {
   display: inline-block;
   padding: 0.65rem 1.5rem;
   border-radius: 999px;
-  background: var(--color-signal);
-  color: var(--color-white);
+  background: var(--color-blue);
+  color: var(--color-offwhite);
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
@@ -147,13 +107,13 @@ main {
 }
 
 .button:hover {
-  background: var(--color-ink);
+  background: var(--color-navy);
 }
 
 main section + section {
   margin-top: 3rem;
   padding-top: 2.5rem;
-  border-top: 1px solid rgba(8, 44, 76, 0.12);
+  border-top: 1px solid rgba(16, 42, 67, 0.12);
 }
 
 main section h2 {
@@ -173,23 +133,23 @@ form {
 
 label {
   font-size: 0.9rem;
-  color: var(--color-slate);
+  color: var(--color-grey);
 }
 
 input,
 textarea {
   padding: 0.75rem;
   border-radius: 8px;
-  border: 1px solid rgba(8, 44, 76, 0.2);
+  border: 1px solid rgba(16, 42, 67, 0.2);
   background: #fff;
-  color: var(--color-ink);
+  color: var(--color-navy);
   font-family: inherit;
   font-size: 1rem;
 }
 
 input:focus,
 textarea:focus {
-  outline: 2px solid var(--color-threshold);
+  outline: 2px solid var(--color-teal);
   outline-offset: 1px;
 }
 
@@ -197,7 +157,7 @@ button.submit {
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 999px;
-  background: var(--color-signal);
+  background: var(--color-blue);
   color: white;
   font-size: 1rem;
   cursor: pointer;
@@ -206,21 +166,21 @@ button.submit {
 }
 
 button.submit:hover {
-  background: var(--color-ink);
+  background: var(--color-navy);
 }
 
 footer {
   text-align: center;
   padding: 2rem;
-  color: var(--color-slate);
+  color: var(--color-grey);
   font-size: 0.85rem;
 }
 
 footer a {
   text-decoration: none;
-  color: var(--color-slate);
+  color: var(--color-grey);
 }
 
 footer a:hover {
-  color: var(--color-ink);
+  color: var(--color-navy);
 }
