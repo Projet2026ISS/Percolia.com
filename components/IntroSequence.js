@@ -2,7 +2,15 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { NODES, EDGES, TRIANGLES, DUST, VIEWBOX } from "@/lib/birdGraph";
+import {
+  NODES,
+  EDGES,
+  TRIANGLES,
+  DUST,
+  VIEWBOX,
+  ACCENT_TEAL,
+  ACCENT_BLUE,
+} from "@/lib/birdGraph";
 
 // Timing budget (ms) for each phase of the intro.
 const T = {
@@ -22,8 +30,12 @@ const T = {
 };
 
 const ALL_POINTS = [
-  ...Object.entries(NODES).map(([name, pos]) => ({ key: `n-${name}`, pos })),
-  ...DUST.map((pos, i) => ({ key: `d-${i}`, pos })),
+  ...Object.entries(NODES).map(([name, pos]) => ({
+    key: `n-${name}`,
+    pos,
+    name,
+  })),
+  ...DUST.map((pos, i) => ({ key: `d-${i}`, pos, name: null })),
 ];
 
 function dist([x1, y1], [x2, y2]) {
@@ -215,13 +227,19 @@ export default function IntroSequence({ targetRef, onComplete }) {
             );
           })}
 
-          {ALL_POINTS.map(({ key, pos: [x, y] }, i) => (
+          {ALL_POINTS.map(({ key, pos: [x, y], name }, i) => (
             <motion.circle
               key={key}
               cx={x}
               cy={y}
-              r={key === "n-eyeDot" ? 5 : 3}
-              fill={key === "n-eyeDot" ? "var(--color-blue)" : "var(--color-teal)"}
+              r={name && (ACCENT_TEAL.has(name) || ACCENT_BLUE.has(name)) ? 5 : 3}
+              fill={
+                name && ACCENT_TEAL.has(name)
+                  ? "var(--color-teal)"
+                  : name && ACCENT_BLUE.has(name)
+                  ? "var(--color-blue)"
+                  : "var(--color-text)"
+              }
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: building ? 1 : 0, scale: building ? 1 : 0 }}
               transition={{

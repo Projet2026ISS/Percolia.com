@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import BirdMark from "@/components/BirdMark";
 import IntroSequence from "@/components/IntroSequence";
 import NetworkBackground from "@/components/NetworkBackground";
 
@@ -48,11 +49,13 @@ export default function HomeClient() {
         <header className="site-header">
           <Link href="/" className="brand">
             <img
-              ref={logoRef}
               src="/percolia-wordmark.svg"
               alt="Percolia"
               className="wordmark"
             />
+            <span ref={logoRef} style={{ display: "inline-flex" }}>
+              <BirdMark width={44} height={33} />
+            </span>
           </Link>
           <nav>
             <Link href="/" className="active">
