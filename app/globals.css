@@ -1,10 +1,13 @@
 :root {
-  /* Palette 1 — Bleu nuit & Cyan (technologique, fiable, épurée) */
-  --color-navy: #102a43;
-  --color-blue: #168aad;
-  --color-teal: #61c0bf;
-  --color-offwhite: #f7f9fa;
-  --color-grey: #8b96a3;
+  /* Percolia dark theme, built on the official brand tokens
+     (github.com/Ludwig-H/Percolia/tree/main/Logo) */
+  --color-bg: #071b2e;
+  --color-surface: #0f2c48;
+  --color-text: #eaf5f7;
+  --color-muted: #9fb4c4;
+  --color-blue: #1c83d4;
+  --color-teal: #20c9c4;
+  --color-border: rgba(234, 245, 247, 0.14);
 
   --font-heading: var(--font-fredoka), "Segoe UI", sans-serif;
   --font-body: var(--font-inter), "Segoe UI", sans-serif;
@@ -21,22 +24,32 @@ body {
 }
 
 body {
-  /* Navy by default so there is no flash of light background before the
-     intro animation (or its skip-state) takes over. */
-  background: var(--color-navy);
-  color: var(--color-navy);
+  background: var(--color-bg);
+  color: var(--color-text);
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
 .page-surface {
-  background: var(--color-offwhite);
+  background: var(--color-bg);
   min-height: 100vh;
 }
 
 a {
   color: inherit;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .wordmark,
@@ -58,8 +71,8 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 2rem;
-  background: #ffffff;
-  border-bottom: 1px solid rgba(8, 44, 76, 0.08);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .site-header .brand {
@@ -67,7 +80,7 @@ a {
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
-  color: var(--color-navy);
+  color: var(--color-text);
 }
 
 .site-header nav {
@@ -77,14 +90,14 @@ a {
 
 .site-header nav a {
   text-decoration: none;
-  color: var(--color-grey);
+  color: var(--color-muted);
   font-size: 0.95rem;
   letter-spacing: 0.02em;
 }
 
 .site-header nav a:hover,
 .site-header nav a.active {
-  color: var(--color-navy);
+  color: var(--color-text);
 }
 
 main {
@@ -102,11 +115,11 @@ main {
   font-weight: 600;
   letter-spacing: 0.06em;
   font-size: 2rem;
-  color: var(--color-navy);
+  color: var(--color-text);
 }
 
 .hero .tagline {
-  color: var(--color-navy);
+  color: var(--color-text);
   font-size: 1.2rem;
   max-width: 34rem;
   margin: 0 0 2rem;
@@ -117,7 +130,7 @@ main {
   padding: 0.65rem 1.5rem;
   border-radius: 999px;
   background: var(--color-blue);
-  color: var(--color-offwhite);
+  color: var(--color-text);
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
@@ -125,13 +138,13 @@ main {
 }
 
 .button:hover {
-  background: var(--color-navy);
+  background: var(--color-teal);
 }
 
 main section + section {
   margin-top: 3rem;
   padding-top: 2.5rem;
-  border-top: 1px solid rgba(16, 42, 67, 0.12);
+  border-top: 1px solid var(--color-border);
 }
 
 main section h2 {
@@ -157,18 +170,23 @@ form {
 
 label {
   font-size: 0.9rem;
-  color: var(--color-grey);
+  color: var(--color-muted);
 }
 
 input,
 textarea {
   padding: 0.75rem;
   border-radius: 8px;
-  border: 1px solid rgba(16, 42, 67, 0.2);
-  background: #fff;
-  color: var(--color-navy);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
   font-family: inherit;
   font-size: 1rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-muted);
 }
 
 input:focus,
@@ -182,7 +200,7 @@ button.submit {
   border: none;
   border-radius: 999px;
   background: var(--color-blue);
-  color: white;
+  color: var(--color-text);
   font-size: 1rem;
   cursor: pointer;
   align-self: flex-start;
@@ -190,21 +208,21 @@ button.submit {
 }
 
 button.submit:hover {
-  background: var(--color-navy);
+  background: var(--color-teal);
 }
 
 footer {
   text-align: center;
   padding: 2rem;
-  color: var(--color-grey);
+  color: var(--color-muted);
   font-size: 0.85rem;
 }
 
 footer a {
   text-decoration: none;
-  color: var(--color-grey);
+  color: var(--color-muted);
 }
 
 footer a:hover {
-  color: var(--color-navy);
+  color: var(--color-text);
 }

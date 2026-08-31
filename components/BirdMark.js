@@ -23,8 +23,8 @@ export default function BirdMark({ className, width = 40, height = 25 }) {
     >
       <defs>
         <linearGradient id={faceGradientId} x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="var(--color-navy)" />
-          <stop offset="100%" stopColor="var(--color-blue)" />
+          <stop offset="0%" stopColor="var(--color-blue)" />
+          <stop offset="100%" stopColor="var(--color-teal)" />
         </linearGradient>
         <linearGradient id={edgeGradientId} x1="0%" y1="100%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="var(--color-blue)" />
@@ -68,7 +68,7 @@ export default function BirdMark({ className, width = 40, height = 25 }) {
           cx={x}
           cy={y}
           r={name === "eyeDot" ? 5 : 3}
-          fill={name === "eyeDot" ? "var(--color-blue)" : "var(--color-navy)"}
+          fill={name === "eyeDot" ? "var(--color-teal)" : "var(--color-text)"}
         />
       ))}
     </svg>

@@ -128,7 +128,7 @@ export default function IntroSequence({ targetRef, onComplete }) {
         position: "fixed",
         inset: 0,
         zIndex: 200,
-        background: "var(--color-navy)",
+        background: "var(--color-bg)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
