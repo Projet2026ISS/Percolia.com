@@ -6,7 +6,7 @@
   --color-offwhite: #f7f9fa;
   --color-grey: #8b96a3;
 
-  --font-heading: var(--font-sora), "Segoe UI", sans-serif;
+  --font-heading: var(--font-fredoka), "Segoe UI", sans-serif;
   --font-body: var(--font-inter), "Segoe UI", sans-serif;
 }
 
@@ -43,7 +43,7 @@ a {
   font-family: var(--font-heading);
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.35em;
+  letter-spacing: 0.22em;
 }
 
 .site-header {
@@ -90,8 +90,8 @@ main {
 
 .hero h1 {
   font-family: var(--font-heading);
-  font-weight: 700;
-  letter-spacing: 0.3em;
+  font-weight: 600;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   font-size: 2.25rem;
   margin: 0 0 1rem;

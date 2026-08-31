@@ -1,10 +1,10 @@
-import { Sora, Inter } from "next/font/google";
+import { Fredoka, Inter } from "next/font/google";
 import "./globals.css";
 
-const sora = Sora({
+const fredoka = Fredoka({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  variable: "--font-sora",
+  weight: ["500", "600", "700"],
+  variable: "--font-fredoka",
   display: "swap",
 });
 
@@ -23,7 +23,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={`${sora.variable} ${inter.variable}`}>
+    <html lang="fr" className={`${fredoka.variable} ${inter.variable}`}>
       <body>{children}</body>
     </html>
   );
