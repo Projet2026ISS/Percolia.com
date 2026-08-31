@@ -6,7 +6,9 @@ export const metadata = {
   title: "Contact — Percolia",
 };
 
-export default function ContactPage() {
+export default async function ContactPage({ searchParams }) {
+  const { status } = await searchParams;
+
   return (
     <div className="page-surface">
       <NetworkBackground
@@ -42,23 +44,59 @@ export default function ContactPage() {
           <p className="tagline">Une question ? Écrivez-nous.</p>
         </section>
 
-        {/*
-          Formulaire statique sans backend pour l'instant.
-          Brancher un service (Formspree, Netlify Forms, etc.) ou une API
-          quand le site sera hébergé.
-        */}
-        <form>
+        {status === "success" && (
+          <p className="form-status form-status-success" role="status">
+            Merci, votre message a bien été envoyé.
+          </p>
+        )}
+        {status === "error" && (
+          <p className="form-status form-status-error" role="alert">
+            L’envoi a échoué. Vérifiez les champs ou réessayez plus tard.
+          </p>
+        )}
+
+        <form action="/api/contact" method="post">
+          <div className="contact-honeypot" aria-hidden="true">
+            <label htmlFor="website">Site web</label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
           <div>
             <label htmlFor="name">Nom</label>
-            <input type="text" id="name" name="name" required />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              autoComplete="name"
+              maxLength={100}
+              required
+            />
           </div>
           <div>
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" required />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autoComplete="email"
+              maxLength={254}
+              required
+            />
           </div>
           <div>
             <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" rows={5} required />
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              maxLength={5000}
+              required
+            />
           </div>
           <button type="submit" className="submit">
             Envoyer
