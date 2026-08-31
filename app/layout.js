@@ -1,5 +1,4 @@
 import { Fredoka, Inter } from "next/font/google";
-import NetworkBackground from "@/components/NetworkBackground";
 import "./globals.css";
 
 const fredoka = Fredoka({
@@ -25,10 +24,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="fr" className={`${fredoka.variable} ${inter.variable}`}>
-      <body>
-        <NetworkBackground />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

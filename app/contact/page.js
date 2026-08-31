@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BirdMark from "@/components/BirdMark";
+import NetworkBackground from "@/components/NetworkBackground";
 
 export const metadata = {
   title: "Contact — Percolia",
@@ -8,6 +9,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <div className="page-surface">
+      <NetworkBackground />
       <header className="site-header">
         <Link href="/" className="brand">
           <BirdMark width={54} height={34} />

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import BirdMark from "@/components/BirdMark";
 import IntroSequence from "@/components/IntroSequence";
+import NetworkBackground from "@/components/NetworkBackground";
 
 const SESSION_KEY = "percolia-intro-played";
 
@@ -36,6 +37,8 @@ export default function HomeClient() {
           onComplete={() => setRevealed(true)}
         />
       )}
+
+      <NetworkBackground />
 
       <div
         className="page-surface"
