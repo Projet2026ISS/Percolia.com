@@ -1,6 +1,6 @@
 import Link from "next/link";
-import BirdMark from "@/components/BirdMark";
 import NetworkBackground from "@/components/NetworkBackground";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata = {
   title: "Contact — Percolia",
@@ -14,15 +14,26 @@ export default function ContactPage() {
       />
       <header className="site-header">
         <Link href="/" className="brand">
-          <img src="/percolia-wordmark.svg" alt="Percolia" className="wordmark" />
-          <BirdMark width={44} height={33} />
+          <img
+            src="/percolia-wordmark.svg"
+            alt="Percolia"
+            className="wordmark wordmark-dark"
+          />
+          <img
+            src="/percolia-wordmark-light.svg"
+            alt="Percolia"
+            className="wordmark wordmark-light"
+          />
         </Link>
-        <nav>
-          <Link href="/">Accueil</Link>
-          <Link href="/contact" className="active">
-            Contact
-          </Link>
-        </nav>
+        <div className="header-actions">
+          <nav>
+            <Link href="/">Accueil</Link>
+            <Link href="/contact" className="active">
+              Contact
+            </Link>
+          </nav>
+          <ThemeToggle />
+        </div>
       </header>
 
       <main>

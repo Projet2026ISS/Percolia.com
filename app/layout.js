@@ -21,10 +21,28 @@ export const metadata = {
     "Percolia transforme automatiquement des données massives et désordonnées en structures exploitables.",
 };
 
+const THEME_INIT_SCRIPT = `
+(function () {
+  try {
+    var saved = window.localStorage.getItem("percolia-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr" className={`${fredoka.variable} ${inter.variable}`}>
-      <body>{children}</body>
+    <html
+      lang="fr"
+      className={`${fredoka.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        {children}
+      </body>
     </html>
   );
 }

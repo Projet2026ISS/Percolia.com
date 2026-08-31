@@ -1,68 +1,39 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import BirdMark from "@/components/BirdMark";
-import IntroSequence from "@/components/IntroSequence";
 import NetworkBackground from "@/components/NetworkBackground";
-
-const SESSION_KEY = "percolia-intro-played";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function HomeClient() {
-  const logoRef = useRef(null);
-  const [showIntro, setShowIntro] = useState(false);
-  const [revealed, setRevealed] = useState(false);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    const reducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    const alreadyPlayed = window.sessionStorage.getItem(SESSION_KEY);
-
-    if (reducedMotion || alreadyPlayed) {
-      setRevealed(true);
-    } else {
-      setShowIntro(true);
-      window.sessionStorage.setItem(SESSION_KEY, "1");
-    }
-    setReady(true);
-  }, []);
-
   return (
     <>
-      {ready && showIntro && (
-        <IntroSequence
-          targetRef={logoRef}
-          onComplete={() => setRevealed(true)}
-        />
-      )}
-
       <NetworkBackground
         config={{ glow: true, bgBlob: true, nodeAreaDivisor: 22000, speed: 3.6 }}
       />
 
-      <div
-        className="page-surface"
-        style={{ opacity: revealed ? 1 : 0, transition: "opacity 0.4s ease" }}
-      >
+      <div className="page-surface">
         <header className="site-header">
           <Link href="/" className="brand">
             <img
               src="/percolia-wordmark.svg"
               alt="Percolia"
-              className="wordmark"
+              className="wordmark wordmark-dark"
             />
-            <span ref={logoRef} style={{ display: "inline-flex" }}>
-              <BirdMark width={44} height={33} />
-            </span>
+            <img
+              src="/percolia-wordmark-light.svg"
+              alt="Percolia"
+              className="wordmark wordmark-light"
+            />
           </Link>
-          <nav>
-            <Link href="/" className="active">
-              Accueil
-            </Link>
-            <Link href="/contact">Contact</Link>
-          </nav>
+          <div className="header-actions">
+            <nav>
+              <Link href="/" className="active">
+                Accueil
+              </Link>
+              <Link href="/contact">Contact</Link>
+            </nav>
+            <ThemeToggle />
+          </div>
         </header>
 
         <main className="hero-center">

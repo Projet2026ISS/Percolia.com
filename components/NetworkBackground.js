@@ -2,9 +2,16 @@
 
 import { useEffect, useRef } from "react";
 
-const COLOR_TEXT = "234, 245, 247"; // --color-text
-const COLOR_BLUE = "28, 131, 212"; // --color-blue
-const COLOR_TEAL = "32, 201, 196"; // --color-teal
+const COLOR_TEXT_DARK = "234, 245, 247"; // --color-text, dark theme
+const COLOR_TEXT_LIGHT = "8, 44, 76"; // --color-text, light theme
+const COLOR_BLUE = "28, 131, 212"; // --color-blue (same in both themes)
+const COLOR_TEAL = "32, 201, 196"; // --color-teal (same in both themes)
+
+function currentTextColor() {
+  return document.documentElement.getAttribute("data-theme") === "light"
+    ? COLOR_TEXT_LIGHT
+    : COLOR_TEXT_DARK;
+}
 
 const DEFAULTS = {
   speed: 1.8, // was effectively 1 before — bumped per feedback
@@ -68,7 +75,16 @@ export default function NetworkBackground({ config }) {
     let nodes = [];
     let raf = null;
     let running = true;
+    let textColor = currentTextColor();
     const mouse = { x: -9999, y: -9999 };
+
+    const themeObserver = new MutationObserver(() => {
+      textColor = currentTextColor();
+    });
+    themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
 
     function resize() {
       width = window.innerWidth;
@@ -187,7 +203,7 @@ export default function NetworkBackground({ config }) {
           } else {
             ctx.shadowBlur = 0;
           }
-          ctx.fillStyle = `rgba(${COLOR_TEXT}, 0.55)`;
+          ctx.fillStyle = `rgba(${textColor}, 0.55)`;
           ctx.beginPath();
           ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
           ctx.fill();
@@ -223,6 +239,7 @@ export default function NetworkBackground({ config }) {
     return () => {
       running = false;
       if (raf) cancelAnimationFrame(raf);
+      themeObserver.disconnect();
       window.removeEventListener("resize", resize);
       document.removeEventListener("visibilitychange", handleVisibility);
       window.removeEventListener("pointermove", handlePointerMove);

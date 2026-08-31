@@ -1,5 +1,5 @@
 :root {
-  /* Percolia dark theme, built on the official brand tokens
+  /* Percolia dark theme (default), built on the official brand tokens
      (github.com/Ludwig-H/Percolia/tree/main/Logo) */
   --color-bg: #071b2e;
   --color-surface: #0f2c48;
@@ -8,9 +8,19 @@
   --color-blue: #1c83d4;
   --color-teal: #20c9c4;
   --color-border: rgba(234, 245, 247, 0.14);
+  --color-header-tint: rgba(15, 44, 72, 0.6);
 
   --font-heading: var(--font-fredoka), "Segoe UI", sans-serif;
   --font-body: var(--font-inter), "Segoe UI", sans-serif;
+}
+
+:root[data-theme="light"] {
+  --color-bg: #ffffff;
+  --color-surface: #eaf5f7;
+  --color-text: #082c4c;
+  --color-muted: #5d7385;
+  --color-border: rgba(8, 44, 76, 0.14);
+  --color-header-tint: rgba(234, 245, 247, 0.72);
 }
 
 * {
@@ -69,12 +79,50 @@ a {
   height: 44px;
 }
 
+.wordmark-light {
+  display: none;
+}
+
+:root[data-theme="light"] .wordmark-dark {
+  display: none;
+}
+
+:root[data-theme="light"] .wordmark-light {
+  display: block;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: background 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--color-border);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 2rem;
-  background: rgba(15, 44, 72, 0.6);
+  background: var(--color-header-tint);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
@@ -148,7 +196,7 @@ main {
   padding: 0.65rem 1.5rem;
   border-radius: 999px;
   background: var(--color-blue);
-  color: var(--color-text);
+  color: #ffffff;
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
@@ -225,7 +273,7 @@ button.submit {
   border: none;
   border-radius: 999px;
   background: var(--color-blue);
-  color: var(--color-text);
+  color: #ffffff;
   font-size: 1rem;
   cursor: pointer;
   align-self: flex-start;
