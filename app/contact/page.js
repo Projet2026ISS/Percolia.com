@@ -14,12 +14,6 @@ export default function ContactPage() {
           <BirdMark width={54} height={34} />
           <img src="/percolia-wordmark.svg" alt="Percolia" className="wordmark" />
         </Link>
-        <nav>
-          <Link href="/">Accueil</Link>
-          <Link href="/contact" className="active">
-            Contact
-          </Link>
-        </nav>
       </header>
 
       <main>

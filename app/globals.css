@@ -56,8 +56,9 @@ a {
 .site-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 1.5rem 2rem;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(8, 44, 76, 0.08);
 }
 
 .site-header .brand {
@@ -65,23 +66,6 @@ a {
   align-items: center;
   gap: 0.75rem;
   text-decoration: none;
-  color: var(--color-navy);
-}
-
-.site-header nav {
-  display: flex;
-  gap: 2rem;
-}
-
-.site-header nav a {
-  text-decoration: none;
-  color: var(--color-grey);
-  font-size: 0.95rem;
-  letter-spacing: 0.02em;
-}
-
-.site-header nav a:hover,
-.site-header nav a.active {
   color: var(--color-navy);
 }
 

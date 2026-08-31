@@ -48,12 +48,6 @@ export default function HomeClient() {
             </span>
             <img src="/percolia-wordmark.svg" alt="Percolia" className="wordmark" />
           </Link>
-          <nav>
-            <Link href="/" className="active">
-              Accueil
-            </Link>
-            <Link href="/contact">Contact</Link>
-          </nav>
         </header>
 
         <main>
