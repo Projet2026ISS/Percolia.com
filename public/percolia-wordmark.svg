@@ -3,8 +3,8 @@
   <desc id="desc">Full-size distinctive P followed by geometric small capitals.</desc>
 
   <style>
-    .glyph-path{fill:none;stroke:#082C4C;stroke-width:14;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-    .glyph-node{vector-effect:non-scaling-stroke}.tone-ink{fill:#082C4C}.tone-blue{fill:#1C83D4}.tone-cyan{fill:#20C9C4}
+    .glyph-path{fill:none;stroke:#082C4C;stroke-width:14;stroke-linecap:round;stroke-linejoin:round}
+    .tone-ink{fill:#082C4C}.tone-blue{fill:#1C83D4}.tone-cyan{fill:#20C9C4}
   </style>
 
   <g id="percolia-wordmark" data-version="0.2.0" data-style="small-caps">
