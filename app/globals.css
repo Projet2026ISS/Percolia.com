@@ -1,0 +1,196 @@
+:root {
+  /* Palette 1 — Bleu nuit & Cyan (technologique, fiable, épurée) */
+  --color-navy: #102a43;
+  --color-blue: #168aad;
+  --color-teal: #61c0bf;
+  --color-offwhite: #f7f9fa;
+  --color-grey: #8b96a3;
+
+  --font-heading: var(--font-sora), "Segoe UI", sans-serif;
+  --font-body: var(--font-inter), "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  /* Navy by default so there is no flash of light background before the
+     intro animation (or its skip-state) takes over. */
+  background: var(--color-navy);
+  color: var(--color-navy);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page-surface {
+  background: var(--color-offwhite);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+.wordmark {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+}
+
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--color-navy);
+}
+
+.site-header .brand .wordmark {
+  font-size: 1.1rem;
+}
+
+.site-header nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.site-header nav a {
+  text-decoration: none;
+  color: var(--color-grey);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.site-header nav a:hover,
+.site-header nav a.active {
+  color: var(--color-navy);
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 2.25rem;
+  margin: 0 0 1rem;
+}
+
+.hero .tagline {
+  color: var(--color-navy);
+  font-size: 1.2rem;
+  max-width: 34rem;
+  margin: 0 0 2rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  border-radius: 999px;
+  background: var(--color-blue);
+  color: var(--color-offwhite);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.button:hover {
+  background: var(--color-navy);
+}
+
+main section + section {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(16, 42, 67, 0.12);
+}
+
+main section h2 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 480px;
+}
+
+label {
+  font-size: 0.9rem;
+  color: var(--color-grey);
+}
+
+input,
+textarea {
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(16, 42, 67, 0.2);
+  background: #fff;
+  color: var(--color-navy);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 1px;
+}
+
+button.submit {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: var(--color-blue);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background 0.2s ease;
+}
+
+button.submit:hover {
+  background: var(--color-navy);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-grey);
+  font-size: 0.85rem;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--color-grey);
+}
+
+footer a:hover {
+  color: var(--color-navy);
+}
