@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import BirdMark from "@/components/BirdMark";
 import IntroSequence from "@/components/IntroSequence";
-import Wordmark from "@/components/Wordmark";
 
 const SESSION_KEY = "percolia-intro-played";
 
@@ -45,9 +44,9 @@ export default function HomeClient() {
         <header className="site-header">
           <Link href="/" className="brand">
             <span ref={logoRef} style={{ display: "inline-flex" }}>
-              <BirdMark width={40} height={25} />
+              <BirdMark width={54} height={34} />
             </span>
-            <Wordmark text="Percolia" height={18} className="wordmark" />
+            <img src="/percolia-wordmark.svg" alt="Percolia" className="wordmark" />
           </Link>
           <nav>
             <Link href="/" className="active">
@@ -60,7 +59,11 @@ export default function HomeClient() {
         <main>
           <section className="hero">
             <h1>
-              <Wordmark text="Percolia" height={40} className="wordmark-h1" />
+              <img
+                src="/percolia-wordmark.svg"
+                alt="Percolia"
+                className="wordmark-h1"
+              />
             </h1>
             <p className="tagline">
               Percolia transforme automatiquement des données massives et

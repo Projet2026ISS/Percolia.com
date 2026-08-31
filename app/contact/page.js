@@ -11,8 +11,8 @@ export default function ContactPage() {
     <div className="page-surface">
       <header className="site-header">
         <Link href="/" className="brand">
-          <BirdMark width={40} height={25} />
-          <Wordmark text="Percolia" height={18} className="wordmark" />
+          <BirdMark width={54} height={34} />
+          <img src="/percolia-wordmark.svg" alt="Percolia" className="wordmark" />
         </Link>
         <nav>
           <Link href="/">Accueil</Link>

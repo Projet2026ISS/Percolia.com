@@ -42,7 +42,15 @@ a {
 .wordmark,
 .wordmark-h1 {
   display: block;
-  color: var(--color-navy);
+  width: auto;
+}
+
+.wordmark {
+  height: 40px;
+}
+
+.wordmark-h1 {
+  height: 40px;
 }
 
 .site-header {
