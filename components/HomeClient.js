@@ -44,9 +44,9 @@ export default function HomeClient() {
         <header className="site-header">
           <Link href="/" className="brand">
             <span ref={logoRef} style={{ display: "inline-flex" }}>
-              <BirdMark width={40} height={25} />
+              <BirdMark width={54} height={34} />
             </span>
-            <span className="brand-name">Percolia</span>
+            <img src="/percolia-wordmark.svg" alt="Percolia" className="wordmark" />
           </Link>
           <nav>
             <Link href="/" className="active">
