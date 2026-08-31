@@ -32,7 +32,8 @@ body {
 }
 
 .page-surface {
-  background: var(--color-bg);
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -73,7 +74,9 @@ a {
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 2rem;
-  background: var(--color-surface);
+  background: rgba(15, 44, 72, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
 }
 
