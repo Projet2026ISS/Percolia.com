@@ -60,8 +60,9 @@ export default function HomeClient() {
           <section className="hero">
             <h1 className="visually-hidden">Percolia</h1>
             <p className="tagline">
-              Percolia transforme automatiquement des données massives et
-              désordonnées en structures exploitables.
+              Percolia structure automatiquement vos données massives et
+              bruitées, plus finement que les méthodes actuelles, pour en
+              extraire les structures qui comptent.
             </p>
           </section>
 
