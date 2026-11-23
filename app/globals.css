@@ -9,6 +9,9 @@
   --color-teal: #20c9c4;
   --color-border: rgba(234, 245, 247, 0.14);
   --color-header-tint: rgba(15, 44, 72, 0.6);
+  /* Same accents as the example videos: teal on dark, blue on light. */
+  --color-accent: var(--color-teal);
+  --color-track: rgba(234, 245, 247, 0.22);
 
   --font-heading: var(--font-fredoka), "Segoe UI", sans-serif;
   --font-body: var(--font-inter), "Segoe UI", sans-serif;
@@ -21,6 +24,8 @@
   --color-muted: #5d7385;
   --color-border: rgba(8, 44, 76, 0.14);
   --color-header-tint: rgba(234, 245, 247, 0.72);
+  --color-accent: var(--color-blue);
+  --color-track: rgba(8, 44, 76, 0.16);
 }
 
 * {
@@ -153,6 +158,29 @@ a {
   color: var(--color-text);
 }
 
+/* Phones: the logo, the links and the theme switch must fit in one row. */
+@media (max-width: 560px) {
+  .site-header {
+    padding: 1rem 1.1rem;
+  }
+
+  .site-header nav {
+    gap: 1.1rem;
+  }
+
+  .site-header nav a {
+    font-size: 0.9rem;
+  }
+
+  .header-actions {
+    gap: 0.9rem;
+  }
+
+  .wordmark {
+    height: 26px;
+  }
+}
+
 main {
   max-width: 900px;
   width: 100%;
@@ -160,13 +188,263 @@ main {
   padding: 4rem 2rem;
 }
 
-.hero-center {
+.home-main {
   flex: 1;
+  max-width: none;
+  padding: 0;
+}
+
+.home-hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 8vh, 5rem) 2rem clamp(1.75rem, 5vh, 3rem);
+  text-align: center;
+}
+
+.home-hero .tagline {
+  margin: 0;
+}
+
+/* Examples: one landscape stage, three videos that cross-fade. */
+.examples {
+  /* Own stacking context, so the stage's halo can sit behind the text. */
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
+  padding: 0 1.25rem;
+  border: 0;
+}
+
+.ex-linkedin {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  padding: 0.35rem 0.25rem;
+  color: var(--color-text);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.ex-linkedin svg {
+  flex: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  color: var(--color-accent);
+}
+
+.ex-linkedin span {
+  text-decoration: underline transparent;
+  text-underline-offset: 0.3em;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.ex-linkedin:hover span,
+.ex-linkedin:focus-visible span {
+  text-decoration-color: currentColor;
+}
+
+.ex-player {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* As wide as the page allows while the whole 4:3 picture, the dots and the
+   LinkedIn line still fit in the window. */
+.ex-stage {
+  position: relative;
+  width: min(100%, 1040px, max(34rem, (100vh - 11rem) * 4 / 3));
+  width: min(100%, 1040px, max(34rem, (100svh - 11rem) * 4 / 3));
+  aspect-ratio: 4 / 3;
+}
+
+/* The videos have the page colour as their own background. This halo of the
+   same colour keeps the animated network from showing behind and around them. */
+.ex-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 1.5rem;
+  background: var(--color-bg);
+  box-shadow: 0 0 3.5rem 2.5rem var(--color-bg);
+}
+
+/* The outermost 1% of the picture is feathered, so no edge can show. */
+.ex-screen {
+  position: absolute;
+  inset: 0;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, #000 1%, #000 99%, transparent),
+    linear-gradient(to bottom, transparent, #000 1.2%, #000 98.8%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    linear-gradient(to right, transparent, #000 1%, #000 99%, transparent),
+    linear-gradient(to bottom, transparent, #000 1.2%, #000 98.8%, transparent);
+  mask-composite: intersect;
+}
+
+.ex-video,
+.ex-poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ex-video {
+  opacity: 0;
+  transition: opacity 700ms ease;
+}
+
+.ex-video.is-on {
+  opacity: 1;
+}
+
+.ex-toggle {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 1rem;
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ex-toggle:focus-visible,
+.ex-dot:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+}
+
+.ex-play {
+  display: grid;
+  place-items: center;
+  width: 4.25rem;
+  height: 4.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-header-tint);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.ex-play.is-on {
+  opacity: 1;
+  transform: none;
+}
+
+.ex-play svg {
+  width: 1.7rem;
+  height: 1.7rem;
+}
+
+.ex-dots {
+  display: flex;
   justify-content: center;
+  margin-top: 0.75rem;
+}
+
+.ex-dot {
+  margin: 0;
+  padding: 0.7rem 0.3rem;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ex-dot-track {
+  display: block;
+  width: 0.55rem;
+  height: 0.55rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-muted);
+  opacity: 0.5;
+  transition: width 0.4s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.ex-dot:hover .ex-dot-track {
+  opacity: 0.9;
+}
+
+/* The current dot stretches into a bar that fills as its video plays. */
+.ex-dot[aria-current="true"] .ex-dot-track {
+  width: 2.75rem;
+  background: var(--color-track);
+  opacity: 1;
+}
+
+.ex-dot-fill {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.ex-dot[aria-current="true"] .ex-dot-fill {
+  display: block;
+}
+
+.ex-caption {
+  min-height: 1.6em;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
   text-align: center;
+  animation: ex-caption-in 0.7s ease both;
+}
+
+@keyframes ex-caption-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  /* On phones the stage runs edge to edge. */
+  .examples {
+    padding: 0;
+  }
+
+  .ex-stage::before {
+    border-radius: 0;
+    box-shadow: 0 0 2rem 1rem var(--color-bg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ex-video,
+  .ex-play,
+  .ex-dot-track {
+    transition-duration: 0.01ms;
+  }
+
+  .ex-caption {
+    animation: none;
+  }
 }
 
 .bottom-block {

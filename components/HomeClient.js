@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Examples from "@/components/Examples";
 import NetworkBackground from "@/components/NetworkBackground";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -36,13 +37,17 @@ export default function HomeClient() {
           </div>
         </header>
 
-        <main className="hero-center">
-          <h1 className="visually-hidden">Percolia</h1>
-          <p className="tagline">
-            Percolia structure automatiquement vos données massives et
-            bruitées, plus finement que les méthodes actuelles, pour en
-            extraire les structures qui comptent.
-          </p>
+        <main className="home-main">
+          <section className="home-hero">
+            <h1 className="visually-hidden">Percolia</h1>
+            <p className="tagline">
+              Percolia structure automatiquement vos données massives et
+              bruitées, plus finement que les méthodes actuelles, pour en
+              extraire les structures qui comptent.
+            </p>
+          </section>
+
+          <Examples />
         </main>
 
         <div className="bottom-block">
