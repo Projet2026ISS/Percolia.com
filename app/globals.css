@@ -429,9 +429,14 @@ main {
   opacity: 1;
 }
 
-/* The current dot stretches into a bar that fills as its video plays. */
+/* The current dot stretches into a bar that fills as its video plays, and
+   that can be clicked or dragged to move through the video. */
+.ex-dot[aria-current="true"] {
+  touch-action: pan-y;
+}
+
 .ex-dot[aria-current="true"] .ex-dot-track {
-  width: 4rem;
+  width: 7rem;
   background: var(--color-track);
   opacity: 1;
 }

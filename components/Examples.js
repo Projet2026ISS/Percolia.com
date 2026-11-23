@@ -133,6 +133,22 @@ export default function Examples() {
     if (index === active) select((active + 1) % COUNT);
   }
 
+  // The stretched dot of the current example is also its seek bar: a click or
+  // a drag along it moves through the video.
+  function seek(event) {
+    const video = videos.current.get(active);
+    if (!video || !(video.duration > 0)) return;
+    const bar = event.currentTarget.firstElementChild.getBoundingClientRect();
+    const ratio = (event.clientX - bar.left) / bar.width;
+    // Stop just short of the end, so the last picture shows before moving on.
+    const time = Math.min(
+      Math.max(0, ratio) * video.duration,
+      video.duration - 0.3
+    );
+    video.currentTime = time;
+    playhead.current = { index: active, time };
+  }
+
   function toggle() {
     const video = videos.current.get(active);
     if (needsTap || userPaused || (video && video.paused)) {
@@ -360,6 +376,19 @@ export default function Examples() {
                 aria-label={`Example ${index + 1} of ${COUNT}: ${item.caption}`}
                 aria-current={index === active ? "true" : undefined}
                 onClick={() => select(index)}
+                onPointerDown={(e) => {
+                  if (index !== active || e.button !== 0) return;
+                  e.currentTarget.setPointerCapture(e.pointerId);
+                  seek(e);
+                }}
+                onPointerMove={(e) => {
+                  if (
+                    index === active &&
+                    e.currentTarget.hasPointerCapture(e.pointerId)
+                  ) {
+                    seek(e);
+                  }
+                }}
               >
                 <span className="ex-dot-track">
                   <span
