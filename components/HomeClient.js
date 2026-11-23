@@ -58,7 +58,6 @@ export default function HomeClient() {
           </div>
 
           <footer>
-            <Link href="/contact">Contact</Link>
             <p>&copy; 2026 Percolia. Tous droits réservés.</p>
           </footer>
         </div>

@@ -339,24 +339,48 @@ export default function Examples() {
           </button>
         </div>
 
-        <div className="ex-dots">
-          {EXAMPLES.map((item, index) => (
-            <button
-              key={item.id}
-              type="button"
-              className="ex-dot"
-              aria-label={`Example ${index + 1} of ${COUNT}: ${item.caption}`}
-              aria-current={index === active ? "true" : undefined}
-              onClick={() => select(index)}
-            >
-              <span className="ex-dot-track">
-                <span
-                  className="ex-dot-fill"
-                  ref={index === active ? fillRef : undefined}
-                />
-              </span>
-            </button>
-          ))}
+        <div className="ex-nav">
+          <button
+            type="button"
+            className="ex-arrow"
+            aria-label="Previous example"
+            onClick={() => select((active + COUNT - 1) % COUNT)}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M14.5 5.5 8 12l6.5 6.5" />
+            </svg>
+          </button>
+
+          <div className="ex-dots">
+            {EXAMPLES.map((item, index) => (
+              <button
+                key={item.id}
+                type="button"
+                className="ex-dot"
+                aria-label={`Example ${index + 1} of ${COUNT}: ${item.caption}`}
+                aria-current={index === active ? "true" : undefined}
+                onClick={() => select(index)}
+              >
+                <span className="ex-dot-track">
+                  <span
+                    className="ex-dot-fill"
+                    ref={index === active ? fillRef : undefined}
+                  />
+                </span>
+              </button>
+            ))}
+          </div>
+
+          <button
+            type="button"
+            className="ex-arrow"
+            aria-label="Next example"
+            onClick={() => select((active + 1) % COUNT)}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M9.5 5.5 16 12l-6.5 6.5" />
+            </svg>
+          </button>
         </div>
 
         <p className="ex-caption" key={example.id}>
