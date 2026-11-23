@@ -10,10 +10,13 @@ export default async function ContactPage({ searchParams }) {
   const { status } = await searchParams;
 
   return (
-    <div className="page-surface">
+    <>
+      {/* Before the page surface, as on the home page: inside it, the canvas
+          would be painted over the form. */}
       <NetworkBackground
         config={{ glow: true, bgBlob: true, nodeAreaDivisor: 22000, speed: 3.6 }}
       />
+      <div className="page-surface">
       <header className="site-header">
         <Link href="/" className="brand">
           <img
@@ -38,7 +41,7 @@ export default async function ContactPage({ searchParams }) {
         </div>
       </header>
 
-      <main>
+      <main className="contact-main">
         <section className="hero">
           <h1 className="text">Contact</h1>
           <p className="tagline">Une question ? Écrivez-nous.</p>
@@ -108,6 +111,7 @@ export default async function ContactPage({ searchParams }) {
         <Link href="/contact">Contact</Link>
         <p>&copy; 2026 Percolia. Tous droits réservés.</p>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }

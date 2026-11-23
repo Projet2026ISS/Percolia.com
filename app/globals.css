@@ -495,6 +495,23 @@ main {
   }
 }
 
+/* Contact: the animated network stays out of the form, behind the same soft
+   halo of the page colour as the example videos. */
+.contact-main {
+  position: relative;
+  isolation: isolate;
+}
+
+.contact-main::before {
+  content: "";
+  position: absolute;
+  inset: 2.5rem 0;
+  z-index: -1;
+  border-radius: 2rem;
+  background: var(--color-bg);
+  box-shadow: 0 0 3rem 2rem var(--color-bg);
+}
+
 .bottom-block {
   width: 100%;
 }
